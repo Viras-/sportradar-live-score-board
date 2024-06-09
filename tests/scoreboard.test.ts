@@ -104,8 +104,8 @@ describe("Test Scoreboard", () => {
 
     test('Finish match also updates match object', () => {
         testMatch = scoreboard.startMatch("Italy", "Poland");
-        expect(testMatch.finished).toBe(true);
-        scoreboard.finishMatch(testMatch);
         expect(testMatch.finished).toBe(false);
+        scoreboard.finishMatch(testMatch);
+        expect(testMatch.finished).toBe(true);
     });
 });

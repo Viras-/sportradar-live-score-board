@@ -28,13 +28,18 @@ export class Scoreboard {
      * @param match 
      */
     finishMatch(match: Match) {
-        throw new Error("Not implemented");
+        if (!this._activeMatches.includes(match)) {
+            throw new Error("Match not on scoreboard");
+        }
+
+        this._activeMatches = this._activeMatches.filter((activeMatch) => activeMatch !== match);
+        match.finishMatch();
     }
 
     /**
      * Returns the scoreboard in the desired order, holding all active games
      */
     getMatches(): Match[] {
-        throw new Error("Not implemented");
+        return this._activeMatches.sort((m1, m2) => m1.totalScore - m2.totalScore);
     }
 }
