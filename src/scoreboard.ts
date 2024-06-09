@@ -1,8 +1,17 @@
 import { Match } from "./match";
 
 export class Scoreboard {
+    protected _activeMatches: Match[];
+
+    constructor() {
+        this._activeMatches = [];
+    }
+
     startMatch(homeTeam: string, awayTeam: string): Match {
-        throw new Error("Not implemented");
+        const newMatch = new Match(homeTeam, awayTeam);
+        this._activeMatches.push(newMatch);
+
+        return newMatch;
     }
 
     finishMatch(match: Match) {
