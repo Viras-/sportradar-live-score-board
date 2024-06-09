@@ -11,6 +11,7 @@ describe('Test Matches', () => {
         expect(testMatch.homeScore).toEqual(0);
         expect(testMatch.awayScore).toEqual(0);
         expect(testMatch.finished).toEqual(false);
+        expect(testMatch.startTime).toBeGreaterThan(0);
     });
 
     test("Set score", () => {

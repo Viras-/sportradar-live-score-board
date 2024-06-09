@@ -8,6 +8,7 @@ export class Match {
     protected _homeScore: number;
     protected _awayScore: number;
     protected _finished: boolean;
+    protected _startTime: number;
 
     constructor(homeTeam: string, awayTeam: string) {
         this._homeTeam = homeTeam;
@@ -67,5 +68,9 @@ export class Match {
 
     get finished(): boolean {
         return this._finished;
+    }
+
+    get startTime(): number {
+        throw new Error("Not implemented");
     }
 }
