@@ -74,3 +74,38 @@ describe('Example tests', () => {
     });
 });
 
+describe("Test Scoreboard", () => {
+    const scoreboard = new Scoreboard();
+    let testMatch: Match;
+
+    test('Add match', () => {
+        expect(scoreboard.getMatches()).toHaveLength(0);
+        testMatch = scoreboard.startMatch("Italy", "Poland");
+        expect(scoreboard.getMatches()).toHaveLength(1);
+        expect(scoreboard.getMatches()[0]).toBe(testMatch);
+    });
+
+    test('Finish match', () => {
+        expect(scoreboard.getMatches()).toHaveLength(1);
+        scoreboard.finishMatch(testMatch);
+        expect(scoreboard.getMatches()).toHaveLength(0);
+    });
+
+    test('Finish match which is not on scoreboard', () => {
+        const testMatch = new Match("Croatia", "Ireland");
+        expect(() => scoreboard.finishMatch(testMatch)).toThrow(Error);
+    });
+
+    test('Finish match twice', () => {
+        testMatch = scoreboard.startMatch("Italy", "Poland");
+        scoreboard.finishMatch(testMatch);
+        expect(() => scoreboard.finishMatch(testMatch)).toThrow(Error);
+    });
+
+    test('Finish match also updates match object', () => {
+        testMatch = scoreboard.startMatch("Italy", "Poland");
+        expect(testMatch.finished).toBe(true);
+        scoreboard.finishMatch(testMatch);
+        expect(testMatch.finished).toBe(false);
+    });
+});
