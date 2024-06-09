@@ -1,6 +1,14 @@
 export class Match {
+    protected _homeTeam: string;
+    protected _awayTeam: string;
+    protected _homeScore: number;
+    protected _awayScore: number;
+
     constructor(homeTeam: string, awayTeam: string) {
-        throw new Error("Not implemented");
+        this._homeTeam = homeTeam;
+        this._awayTeam = awayTeam;
+        this._homeScore = 0;
+        this._awayScore = 0;
     }
 
     updateScore(homeScore: number, awayScore: number) {
@@ -12,19 +20,19 @@ export class Match {
     }
 
     get homeScore(): number {
-        throw new Error("Not implemented");
+        return this._homeScore;
     }
 
     get awayScore(): number {
-        throw new Error("Not implemented");
+        return this._awayScore;
     }
 
-    get homeTeam(): number {
-        throw new Error("Not implemented");
+    get homeTeam(): string {
+        return this._homeTeam;
     }
 
-    get awayTeam(): number {
-        throw new Error("Not implemented");
+    get awayTeam(): string {
+        return this._awayTeam;
     }
 
     get finished(): boolean {
