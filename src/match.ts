@@ -3,12 +3,14 @@ export class Match {
     protected _awayTeam: string;
     protected _homeScore: number;
     protected _awayScore: number;
+    protected _finished: boolean;
 
     constructor(homeTeam: string, awayTeam: string) {
         this._homeTeam = homeTeam;
         this._awayTeam = awayTeam;
         this._homeScore = 0;
         this._awayScore = 0;
+        this._finished = false;
     }
 
     updateScore(homeScore: number, awayScore: number) {
@@ -36,6 +38,6 @@ export class Match {
     }
 
     get finished(): boolean {
-        throw new Error("Not implemented");
+        return this._finished;
     }
 }
