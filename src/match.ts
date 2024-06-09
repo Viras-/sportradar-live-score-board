@@ -17,12 +17,19 @@ export class Match {
         if (homeScore < 0 || awayScore < 0) {
             throw new Error("Invalid negative score");
         }
+        if (this._finished) {
+            throw new Error("Can't update score after match finished");
+        }
 
         this._homeScore = homeScore;
         this._awayScore = awayScore;
     }
 
     finishMatch() {
+        if (this._finished) {
+            throw new Error("Match already finished");
+        }
+
         this._finished = true;
     }
 
