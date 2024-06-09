@@ -19,6 +19,11 @@ describe('Test Matches', () => {
         expect(testMatch.awayScore).toEqual(2);
     });
 
+    test("Total score", () => {
+        testMatch.updateScore(4, 3);
+        expect(testMatch.totalScore).toEqual(7);
+    });
+
     test("Set invalid score to fail", () => {
         expect(() => testMatch.updateScore(-1, 2)).toThrow(Error);
         expect(() => testMatch.updateScore(5, -1)).toThrow(Error);

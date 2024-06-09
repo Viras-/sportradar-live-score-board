@@ -53,6 +53,10 @@ export class Match {
         return this._awayScore;
     }
 
+    get totalScore(): number {
+        return this._homeScore + this._awayScore;
+    }
+
     get homeTeam(): string {
         return this._homeTeam;
     }
