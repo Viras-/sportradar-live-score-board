@@ -16,6 +16,7 @@ export class Match {
         this._homeScore = 0;
         this._awayScore = 0;
         this._finished = false;
+        this._startTime = Date.now();
     }
 
     /**
@@ -71,6 +72,6 @@ export class Match {
     }
 
     get startTime(): number {
-        throw new Error("Not implemented");
+        return this._startTime;
     }
 }
