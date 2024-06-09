@@ -20,9 +20,9 @@ describe('Test Matches', () => {
     });
 
     test("Set invalid score to fail", () => {
-        expect(testMatch.updateScore(-1, 2)).toThrow(Error);
-        expect(testMatch.updateScore(5, -1)).toThrow(Error);
-        expect(testMatch.updateScore(-1, -1)).toThrow(Error);
+        expect(() => testMatch.updateScore(-1, 2)).toThrow(Error);
+        expect(() => testMatch.updateScore(5, -1)).toThrow(Error);
+        expect(() => testMatch.updateScore(-1, -1)).toThrow(Error);
     });
 
     test("Finish match", () => {
@@ -32,10 +32,10 @@ describe('Test Matches', () => {
     });
 
     test("Updated score after match finished", () => {
-        expect(testMatch.updateScore(2, 2)).toThrow(Error);
+        expect(() => testMatch.updateScore(2, 2)).toThrow(Error);
     });
 
     test("Finish match again", () => {
-        expect(testMatch.finishMatch()).toThrow(Error);
+        expect(() => testMatch.finishMatch()).toThrow(Error);
     });
 });
