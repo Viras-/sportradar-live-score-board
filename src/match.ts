@@ -1,3 +1,7 @@
+/**
+ * Represents a match (which is either ongoing or finished)
+ * It holds all relevant infos and provides access to them
+ */
 export class Match {
     protected _homeTeam: string;
     protected _awayTeam: string;
@@ -13,6 +17,11 @@ export class Match {
         this._finished = false;
     }
 
+    /**
+     * Set the new score for the home / away team
+     * @param homeScore 
+     * @param awayScore 
+     */
     updateScore(homeScore: number, awayScore: number) {
         if (homeScore < 0 || awayScore < 0) {
             throw new Error("Invalid negative score");
@@ -25,6 +34,9 @@ export class Match {
         this._awayScore = awayScore;
     }
 
+    /**
+     * Finishes the match, disabling any further modification of scores etc.
+     */
     finishMatch() {
         if (this._finished) {
             throw new Error("Match already finished");
