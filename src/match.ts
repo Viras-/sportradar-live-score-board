@@ -14,7 +14,8 @@ export class Match {
     }
 
     updateScore(homeScore: number, awayScore: number) {
-        throw new Error("Not implemented");
+        this._homeScore = homeScore;
+        this._awayScore = awayScore;
     }
 
     finishMatch() {
