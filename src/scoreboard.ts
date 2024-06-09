@@ -40,6 +40,6 @@ export class Scoreboard {
      * Returns the scoreboard in the desired order, holding all active games
      */
     getMatches(): Match[] {
-        return this._activeMatches.sort((m1, m2) => m2.totalScore - m1.totalScore);
+        return this._activeMatches.sort((m1, m2) => m2.totalScore - m1.totalScore || m2.startTime - m1.startTime);
     }
 }
