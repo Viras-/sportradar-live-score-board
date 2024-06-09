@@ -14,12 +14,16 @@ export class Match {
     }
 
     updateScore(homeScore: number, awayScore: number) {
+        if (homeScore < 0 || awayScore < 0) {
+            throw new Error("Invalid negative score");
+        }
+
         this._homeScore = homeScore;
         this._awayScore = awayScore;
     }
 
     finishMatch() {
-        throw new Error("Not implemented");
+        this._finished = true;
     }
 
     get homeScore(): number {
