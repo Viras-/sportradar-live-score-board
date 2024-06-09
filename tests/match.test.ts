@@ -10,6 +10,7 @@ describe('Test Matches', () => {
         expect(testMatch.awayTeam).toEqual("Scotland");
         expect(testMatch.homeScore).toEqual(0);
         expect(testMatch.awayScore).toEqual(0);
+        expect(testMatch.finished).toEqual(false);
     });
 
     test("Set score", () => {
